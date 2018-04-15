@@ -1,0 +1,18 @@
+{% assign films = site.data.competition | where: "position", "1st" | sort: "year" %}
+<div style="overflow-x:auto;" class="table-responsive">
+<table class="table table-condensed">
+{% tablerow film in films cols:4 %}
+    <a href="http://youtube.com/watch?v={{ film.youtube }}" target="_blank">
+        <img 
+            src="http://img.youtube.com/vi/{{ film.youtube }}/3.jpg"
+            alt="{{ film.title }}"
+            title="{{ film.title }} by {{ film.firstname }} {{ film.secondname }}"/>
+        <div>{{ film.title }}</div>
+        <div>Year: {{ film.year }}</div>
+        <div>Category: {{ film.category }}</div>
+      </a>
+{% endtablerow %}
+</table>
+</div>
+
+
